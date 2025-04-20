@@ -1,8 +1,8 @@
 export default {
-  displayName: 'DanWebApp',
-  preset: '../../jest.preset.js',
+  displayName: 'DanAngularWebApp',
+  preset: '../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/apps/DanWebApp',
+  coverageDirectory: '../coverage/DanAngularWebApp',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

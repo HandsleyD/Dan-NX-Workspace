@@ -15,13 +15,13 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Welcome DanWebApp'
+      'Welcome DanAngularWebApp'
     );
   });
 
-  it(`should have as title 'DanWebApp'`, () => {
+  it(`should have as title 'DanAngularWebApp'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('DanWebApp');
+    expect(app.title).toEqual('DanAngularWebApp');
   });
 });
