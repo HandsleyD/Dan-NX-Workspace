@@ -1,19 +1,25 @@
 {
-  "name": "DanAngularWebApp",
   "$schema": "../node_modules/nx/schemas/project-schema.json",
-  "projectType": "application",
+  "deploy": {
+    "executor": "nx:run-commands",
+    "options": {
+      "command": "npx gh-pages -d dist/apps/DanAngularWebApp"
+    }
+  },
+  "name": "DanAngularWebApp",
   "prefix": "app",
+  "projectType": "application",
   "sourceRoot": "DanAngularWebApp/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [ "{options.outputPath}" ],
       "options": {
         "outputPath": "dist/DanAngularWebApp/browser",
         "index": "DanAngularWebApp/src/index.html",
         "main": "DanAngularWebApp/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [ "zone.js" ],
         "tsConfig": "DanAngularWebApp/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -22,7 +28,7 @@
             "input": "DanAngularWebApp/public"
           }
         ],
-        "styles": ["DanAngularWebApp/src/styles.scss"],
+        "styles": [ "DanAngularWebApp/src/styles.scss" ],
         "scripts": []
       },
       "configurations": {
@@ -75,7 +81,7 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [ "{workspaceRoot}/coverage/{projectRoot}" ],
       "options": {
         "jestConfig": "DanAngularWebApp/jest.config.ts"
       }
@@ -89,7 +95,7 @@
       }
     },
     "server": {
-      "dependsOn": ["build"],
+      "dependsOn": [ "build" ],
       "executor": "@angular-devkit/build-angular:server",
       "options": {
         "outputPath": "dist/DanAngularWebApp/server",
@@ -128,7 +134,7 @@
     "prerender": {
       "executor": "@angular-devkit/build-angular:prerender",
       "options": {
-        "routes": ["/"]
+        "routes": [ "/" ]
       },
       "configurations": {
         "development": {
