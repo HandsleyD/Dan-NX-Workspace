@@ -34,8 +34,8 @@ jobs:
       - run: npm ci --legacy-peer-deps
   
       # Install Playwright dependencies
-      - name: Install Playwright dependencies
-        run: npx playwright install-deps
+      # - name: Install Playwright dependencies
+      #   run: npx playwright install-deps
 
       - run: npx playwright install --with-deps
       - uses: nrwl/nx-set-shas@v4
