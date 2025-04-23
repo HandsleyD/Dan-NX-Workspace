@@ -32,6 +32,12 @@ jobs:
           cache: 'npm'
 
       - run: npm ci --legacy-peer-deps
+
+      # Install missing system dependencies for Playwright
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-4-1 libgraphene-1.0-0 libavif13
   
       # Install Playwright dependencies
       # - name: Install Playwright dependencies
