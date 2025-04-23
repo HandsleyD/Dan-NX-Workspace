@@ -53,7 +53,7 @@ jobs:
       # NB: I removed the default task below as it led to caching issues with NX cloud.
       # - run: npx nx affected -t build e2e-ci
   
-        # Run affected lint, test, and build tasks
-      - run: npx nx affected -t lint --skip-nx-cache && npx nx affected -t test --skip-nx-cache && npx nx affected -t build e2e-ci
-
+        # Run affected lint, test, and build tasks. Also add verbose logging to capture any issues. And make sure to terminate after the last task.
+      - run: npx nx affected -t lint --skip-nx-cache --verbose && npx nx affected -t test --skip-nx-cache --verbose && npx nx affected -t build e2e-ci --verbose --stop-agents-after="e2e-ci"
+     
 
