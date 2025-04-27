@@ -10,7 +10,7 @@
 
 ## Run tasks
 
-To run the dev server for your app, use:
+To run the dev server app, use:
 
 ```sh
 npx nx serve DanWebApp
