@@ -32,7 +32,7 @@ jobs:
           cache: 'npm'
 
       - run: npm ci --legacy-peer-deps
-  
+
       # Install Playwright dependencies
       # - name: Install Playwright dependencies
       #   run: npx playwright install-deps
@@ -46,8 +46,6 @@ jobs:
       # When you enable task distribution, run the e2e-ci task instead of e2e
       # NB: I removed the default task below as it led to caching issues with NX cloud.
       # - run: npx nx affected -t build e2e-ci
-  
-        # Run affected lint, test, and build tasks. Also add verbose logging to capture any issues. And make sure to terminate after the last task.
-      - run: npx nx affected -t lint --skip-nx-cache --verbose && npx nx affected -t test --skip-nx-cache --verbose && npx nx affected -t build e2e-ci --verbose
-     
 
+      # Run affected lint, test, and build tasks. Also add verbose logging to capture any issues. And make sure to terminate after the last task.
+      - run: npx nx affected -t lint --skip-nx-cache --verbose && npx nx affected -t test --skip-nx-cache --verbose && npx nx affected -t build e2e-ci --verbose
