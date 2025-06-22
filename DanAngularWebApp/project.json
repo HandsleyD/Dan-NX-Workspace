@@ -1,6 +1,6 @@
 {
-  "$schema": "../node_modules/nx/schemas/project-schema.json",
   "name": "DanAngularWebApp",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
   "prefix": "app",
   "projectType": "application",
   "sourceRoot": "DanAngularWebApp/src",
@@ -65,7 +65,8 @@
           "buildTarget": "DanAngularWebApp:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "continuous": true
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
@@ -127,7 +128,8 @@
           "serverTarget": "DanAngularWebApp:server:production"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "continuous": true
     },
     "prerender": {
       "executor": "@angular-devkit/build-angular:prerender",
