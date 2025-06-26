@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet, RouterLink } from '@angular/router';
-import { HomeComponent } from './home.component';
+import { RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
-  imports: [HomeComponent, RouterModule, RouterOutlet, RouterLink],
+  imports: [RouterModule, RouterOutlet],
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'DanAngularWebApp';

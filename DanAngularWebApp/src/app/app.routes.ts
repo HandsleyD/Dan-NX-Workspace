@@ -5,6 +5,11 @@ import { IntroductionComponent } from './introduction.component';
 
 export const appRoutes: Routes = [
   {
+    path: '',
+    title: 'Home Page',
+    component: HomeComponent,
+  },
+  {
     path: 'home',
     title: 'Home Page',
     component: HomeComponent,

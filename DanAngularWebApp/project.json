@@ -22,10 +22,6 @@
             "input": "DanAngularWebApp/public"
           }
         ],
-        "styles": [
-          "@angular/material/prebuilt-themes/rose-red.css",
-          "DanAngularWebApp/src/styles.scss"
-        ],
         "scripts": []
       },
       "configurations": {
