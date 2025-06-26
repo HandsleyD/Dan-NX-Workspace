@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
+import { NavigationComponent } from "./navigation/navigation.component";
 
 @Component({
-  imports: [RouterModule, RouterOutlet],
+  imports: [RouterModule, RouterOutlet, NavigationComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
 })
