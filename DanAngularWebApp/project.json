@@ -22,7 +22,10 @@
             "input": "DanAngularWebApp/public"
           }
         ],
-        "scripts": []
+        "scripts": [],
+        "styles": [
+          "DanAngularWebApp/src/styles.scss"
+        ]
       },
       "configurations": {
         "production": {
