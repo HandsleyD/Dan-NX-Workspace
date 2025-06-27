@@ -13,26 +13,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
-  styles: `
-    .sidenav-container {
-      height: 100%;
-    }
-    
-    .sidenav {
-      width: 200px;
-    }
-    
-    .sidenav .mat-toolbar {
-      background: inherit;
-    }
-    
-    .mat-toolbar.mat-primary {
-      position: sticky;
-      top: 0;
-      z-index: 1;
-    }
-    
-  `,
+  styleUrls: ['./navigation.component.scss'],
   imports: [
     MatToolbarModule,
     MatButtonModule,

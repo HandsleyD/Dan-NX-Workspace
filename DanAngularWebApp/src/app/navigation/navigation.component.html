@@ -1,3 +1,7 @@
+<mat-toolbar color="primary" class="top-toolbar">
+  <span>DB Pensions For Dummies</span>
+</mat-toolbar>
+
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav
     #drawer
@@ -14,18 +18,6 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar>
-      @if (isHandset$ | async) {
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        matIconButton
-        (click)="drawer.toggle()"
-      >
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      }
-    </mat-toolbar>
-    <!-- Add Content Here -->
+    <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>
