@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -24,6 +25,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
+    MatTabsModule,
     RouterLink,
     RouterOutlet,
   ],
@@ -32,6 +34,7 @@ export class NavigationComponent {
   private readonly breakpointObserver = inject(BreakpointObserver);
 
   readonly isHandset = signal(false);
+  selectedTab = signal(0); // 0 = Pension Basics, 1 = Advanced Topics, 2 = Calculators
 
   constructor() {
     effect(() => {
@@ -41,5 +44,9 @@ export class NavigationComponent {
           this.isHandset.set(result.matches);
         });
     });
+  }
+
+  onTabChange(index: number) {
+    this.selectedTab.set(index);
   }
 }

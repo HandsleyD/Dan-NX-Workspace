@@ -1,8 +1,18 @@
 <mat-toolbar color="primary" class="top-toolbar">
-  <span>DB Pensions For Dummies</span>
+  <span class="toolbar-title">DB Pensions For Dummies</span>
+  <mat-tab-group
+    animationDuration="0ms"
+    [selectedIndex]="selectedTab()"
+    (selectedIndexChange)="onTabChange($event)"
+  >
+    <mat-tab label="Pension Basics" routerLink="/home"></mat-tab>
+    <mat-tab label="Advanced Topics" routerLink="/introduction"></mat-tab>
+    <mat-tab label="Calculators" routerLink="/introduction"></mat-tab>
+  </mat-tab-group>
 </mat-toolbar>
 
-<mat-sidenav-container class="sidenav-container">
+@switch (selectedTab()) { @case (0) {
+<mat-sidenav-container class="sidenav-container-Pension-Basics">
   <mat-sidenav
     #drawer
     class="sidenav"
@@ -11,7 +21,7 @@
     [mode]="isHandset() ? 'over' : 'side'"
     [opened]="!isHandset()"
   >
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar> Menu </mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="/home">Home</a>
       <a mat-list-item routerLink="/introduction">Introduction</a>
@@ -21,3 +31,12 @@
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+} @case (1) {
+<mat-sidenav-container class="sidenav-container-Advanced-Topics">
+  <!-- Advanced Topics: empty container -->
+</mat-sidenav-container>
+} @case (2) {
+<mat-sidenav-container class="sidenav-container-Calculators">
+  <!-- Calculators: empty container -->
+</mat-sidenav-container>
+} }

@@ -32,3 +32,11 @@
   padding: 0;
   text-align: left;
 }
+
+.toolbar-title {
+  margin-right: 32px; // Adjust the gap as needed
+  font-weight: 500;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+}
