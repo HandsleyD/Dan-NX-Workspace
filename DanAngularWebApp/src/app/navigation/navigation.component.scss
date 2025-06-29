@@ -17,14 +17,18 @@
 
 .sidenav {
   width: 240px;
-  /* Ensure the sidenav is not fixed or absolute */
   position: relative;
   height: 100%;
-  // No custom background—let Material theme apply
 }
 
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
   z-index: 1;
+}
+
+.mat-sidenav-content {
+  display: block;
+  padding: 0;
+  text-align: left;
 }
