@@ -12,7 +12,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
+
+type TabKey = ['pension-basics', 'advanced-topics', 'calculators'][number];
 
 @Component({
   selector: 'app-navigation',
@@ -32,9 +34,11 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class NavigationComponent {
   private readonly breakpointObserver = inject(BreakpointObserver);
+  private readonly router = inject(Router);
 
   readonly isHandset = signal(false);
-  selectedTab = signal(0); // 0 = Pension Basics, 1 = Advanced Topics, 2 = Calculators
+
+  tabRoutes = ['/home', '/advanced-topics', '/calculators'];
 
   constructor() {
     effect(() => {
@@ -47,6 +51,14 @@ export class NavigationComponent {
   }
 
   onTabChange(index: number) {
-    this.selectedTab.set(index);
+    this.router.navigate([this.tabRoutes[index]]);
+  }
+
+  tabKeyFromRoute(): TabKey {
+    const url = this.router.url;
+    if (url.startsWith('/home')) return 'pension-basics';
+    if (url.startsWith('/introduction')) return 'advanced-topics';
+    if (url.startsWith('/calculators')) return 'calculators';
+    return 'pension-basics'; // default
   }
 }

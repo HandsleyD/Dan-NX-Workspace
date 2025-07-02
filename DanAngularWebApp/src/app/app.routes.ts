@@ -10,13 +10,25 @@ export const appRoutes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'home',
-    title: 'Home Page',
-    component: HomeComponent,
+    path: 'pension-basics',
+    title: 'pension-basics',
+    component: pensionBasicsComponent,
+    children: [
+      {
+        path: 'what-is-a-pension',
+        title: 'What is a Pension?',
+        component: HomeComponent,
+      },
+      {
+        path: 'history-of-pensions',
+        title: 'History of Pensions',
+        component: HomeComponent,
+      },
+    ],
   },
   {
-    path: 'introduction',
-    title: 'Introduction Page',
-    component: IntroductionComponent,
+    path: 'advanced-topics',
+    title: 'advanced-topics',
+    component: advancedTopicsComponent,
   },
 ];
