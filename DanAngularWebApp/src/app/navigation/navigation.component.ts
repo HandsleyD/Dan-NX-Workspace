@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   effect,
   inject,
   signal,
@@ -12,9 +13,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
-type TabKey = ['pension-basics', 'advanced-topics', 'calculators'][number];
+type TabKey = 'pension-basics' | 'advanced-topics' | 'calculators';
 
 @Component({
   selector: 'app-navigation',
@@ -37,8 +39,19 @@ export class NavigationComponent {
   private readonly router = inject(Router);
 
   readonly isHandset = signal(false);
+  readonly currentUrl = signal(this.router.url);
 
-  tabRoutes = ['/home', '/advanced-topics', '/calculators'];
+  // Tab routes for the main navigation
+  readonly tabRoutes = ['/pension-basics', '/advanced-topics', '/calculators'];
+
+  // Computed property to determine which sidenav to show
+  readonly sidenavToShow = computed(() => {
+    const url = this.currentUrl();
+    if (url.startsWith('/pension-basics')) return 'pension-basics';
+    if (url.startsWith('/advanced-topics')) return 'advanced-topics';
+    if (url.startsWith('/calculators')) return 'calculators';
+    return 'pension-basics'; // default
+  });
 
   constructor() {
     effect(() => {
@@ -48,6 +61,13 @@ export class NavigationComponent {
           this.isHandset.set(result.matches);
         });
     });
+
+    // Listen to route changes to update current URL
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.currentUrl.set(event.url);
+      });
   }
 
   onTabChange(index: number) {
@@ -55,9 +75,9 @@ export class NavigationComponent {
   }
 
   tabKeyFromRoute(): TabKey {
-    const url = this.router.url;
-    if (url.startsWith('/home')) return 'pension-basics';
-    if (url.startsWith('/introduction')) return 'advanced-topics';
+    const url = this.currentUrl();
+    if (url.startsWith('/pension-basics')) return 'pension-basics';
+    if (url.startsWith('/advanced-topics')) return 'advanced-topics';
     if (url.startsWith('/calculators')) return 'calculators';
     return 'pension-basics'; // default
   }

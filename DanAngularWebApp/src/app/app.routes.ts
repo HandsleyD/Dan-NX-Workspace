@@ -1,18 +1,19 @@
 import { Routes } from '@angular/router';
 // This file defines the routes for the Angular application.
 import { HomeComponent } from './home.component';
-import { IntroductionComponent } from './introduction.component';
+import { PensionBasicsComponent } from './pensionBasics.component';
+import { AdvancedTopicsComponent } from './advanced-topics.component';
 
 export const appRoutes: Routes = [
   {
     path: '',
-    title: 'Home Page',
-    component: HomeComponent,
+    title: 'pension-basics',
+    component: PensionBasicsComponent,
   },
   {
     path: 'pension-basics',
     title: 'pension-basics',
-    component: pensionBasicsComponent,
+    component: PensionBasicsComponent,
     children: [
       {
         path: 'what-is-a-pension',
@@ -29,6 +30,11 @@ export const appRoutes: Routes = [
   {
     path: 'advanced-topics',
     title: 'advanced-topics',
-    component: advancedTopicsComponent,
+    component: AdvancedTopicsComponent,
+  },
+  {
+    path: 'calculators',
+    title: 'calculators',
+    component: HomeComponent, // You can create a proper CalculatorsComponent later
   },
 ];
