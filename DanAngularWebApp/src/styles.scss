@@ -2,7 +2,25 @@
 
 @import '@angular/material/prebuilt-themes/rose-red.css';
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background: #fff0f1; // Matches rose-red Material theme background
   font-family: Roboto, Arial, sans-serif;
+  overflow-x: hidden; // Prevent horizontal scrollbar
+  overflow-y: hidden; // Prevent body scrolling - let components handle their own scrolling
+}
+
+html, body {
+  height: 100%;
+}
+
+// App root should use full height
+app-root {
+  display: block;
+  height: 100%;
 }

@@ -1,7 +1,7 @@
-<mat-toolbar color="primary" class="top-toolbar">
+<mat-toolbar color="primary" class="top-toolbar fixed-toolbar">
   <span class="toolbar-title">DB Pensions For Dummies</span>
   <mat-tab-group
-    [selectedIndex]="tabKeyFromRoute() === 'pension-basics' ? 0 : tabKeyFromRoute() === 'advanced-topics' ? 1 : 2"
+    [selectedIndex]="selectedTabIndex()"
     (selectedIndexChange)="onTabChange($event)"
     animationDuration="0ms"
   >
@@ -11,6 +11,7 @@
   </mat-tab-group>
 </mat-toolbar>
 
+<div class="content-wrapper">
 @switch (sidenavToShow()) {
   @case ('pension-basics') {
     <mat-sidenav-container class="sidenav-container-Pension-Basics">
@@ -21,7 +22,7 @@
           </a>
           <a
             mat-list-item
-            routerLink="/pension-basics/what-is-a-pension"
+            routerLink="/pension-basics/what-is-a-DB-pension"
             routerLinkActive="active-link"
           >
             What is a DB Pension?
@@ -93,3 +94,4 @@
     </mat-sidenav-container>
   }
 }
+</div>

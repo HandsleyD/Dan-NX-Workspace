@@ -1,5 +1,6 @@
-.top-toolbar {
-  position: relative;
+// Fixed toolbar styles
+.fixed-toolbar {
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -7,17 +8,29 @@
   height: 64px;
   align-items: center;
   background-color: var(--rose-background);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+// Content wrapper to account for fixed toolbar
+.content-wrapper {
+  margin-top: 64px; // Same as toolbar height
+  height: calc(100vh - 64px); // Full viewport height minus toolbar
 }
 
 .sidenav-container-Pension-Basics,
 .sidenav-container-Advanced-Topics,
 .sidenav-container-Calculators {
-  height: 100vh;
+  height: 100%; // Use full available height
   background-color: var(--rose-background);
 }
 
 .mat-sidenav {
   width: fit-content; // Fixed width for sidenav
-  background-color: var(--rose-background);
-  color: var(--rose-text);
+}
+
+// Fix scrolling issues
+mat-sidenav-content {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
 }
