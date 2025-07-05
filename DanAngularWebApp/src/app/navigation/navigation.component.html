@@ -1,0 +1,97 @@
+<mat-toolbar color="primary" class="top-toolbar fixed-toolbar">
+  <span class="toolbar-title">DB Pensions For Dummies</span>
+  <mat-tab-group
+    [selectedIndex]="selectedTabIndex()"
+    (selectedIndexChange)="onTabChange($event)"
+    animationDuration="0ms"
+  >
+    <mat-tab label="Pension Basics"></mat-tab>
+    <mat-tab label="Advanced Topics"></mat-tab>
+    <mat-tab label="Calculators"></mat-tab>
+  </mat-tab-group>
+</mat-toolbar>
+
+<div class="content-wrapper">
+@switch (sidenavToShow()) {
+  @case ('pension-basics') {
+    <mat-sidenav-container class="sidenav-container-Pension-Basics">
+      <mat-sidenav mode="side" opened>
+        <mat-nav-list>
+          <a mat-list-item routerLink="/pension-basics" routerLinkActive="active-link">
+            Pension Basics Home
+          </a>
+          <a
+            mat-list-item
+            routerLink="/pension-basics/what-is-a-DB-pension"
+            routerLinkActive="active-link"
+          >
+            What is a DB Pension?
+          </a>
+          <a mat-list-item routerLink="/pension-basics/history-of-pensions" routerLinkActive="active-link">
+            History of Pensions
+          </a>
+          <a
+            mat-list-item
+            routerLink="/pension-basics/how-db-pensions-work"
+            routerLinkActive="active-link"
+          >
+            How DB Pensions Work
+          </a>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content> <router-outlet></router-outlet> </mat-sidenav-content>
+    </mat-sidenav-container>
+  }
+  @case ('advanced-topics') {
+    <mat-sidenav-container class="sidenav-container-Advanced-Topics">
+      <mat-sidenav mode="side" opened>
+        <mat-nav-list>
+          <a mat-list-item routerLink="/advanced-topics" routerLinkActive="active-link">
+            Advanced Topics Home
+          </a>
+          <a
+            mat-list-item
+            routerLink="/advanced-topics/topic-1"
+            routerLinkActive="active-link"
+          >
+            Advanced Topic 1
+          </a>
+          <a mat-list-item routerLink="/advanced-topics/topic-2" routerLinkActive="active-link">
+            Advanced Topic 2
+          </a>
+          <a
+            mat-list-item
+            routerLink="/advanced-topics/topic-3"
+            routerLinkActive="active-link"
+          >
+            Advanced Topic 3
+          </a>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content> <router-outlet></router-outlet> </mat-sidenav-content>
+    </mat-sidenav-container>
+  }
+  @case ('calculators') {
+    <mat-sidenav-container class="sidenav-container-Calculators">
+      <mat-sidenav mode="side" opened>
+        <mat-nav-list>
+          <a mat-list-item routerLink="/calculators" routerLinkActive="active-link">
+            Calculators Home
+          </a>
+          <a
+            mat-list-item
+            routerLink="/calculators/pension-calculator"
+            routerLinkActive="active-link"
+          >
+            Pension Calculator
+          </a>
+          <a mat-list-item routerLink="/calculators/retirement-calculator" routerLinkActive="active-link">
+            Retirement Calculator
+          </a>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content> <router-outlet></router-outlet> </mat-sidenav-content>
+    </mat-sidenav-container>
+  }
+}
+</div>

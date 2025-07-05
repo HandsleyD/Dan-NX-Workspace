@@ -42,78 +42,6 @@
       }
     },
     {
-      "plugin": "@nx/angular/plugin",
-      "options": {
-        "targetNamePrefix": ""
-      }
-    },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
-    {
-      "plugin": "@nx/jest/plugin",
-      "options": {
-        "targetName": "test"
-      }
-    },
-    {
-      "plugin": "@nx/playwright/plugin",
-      "options": {
-        "targetName": "e2e"
-      }
-    },
-    {
-      "plugin": "@nx/angular/plugin",
-      "options": {
-        "targetNamePrefix": ""
-      }
-    },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
-    {
-      "plugin": "@nx/jest/plugin",
-      "options": {
-        "targetName": "test"
-      }
-    },
-    {
-      "plugin": "@nx/playwright/plugin",
-      "options": {
-        "targetName": "e2e"
-      }
-    },
-    {
-      "plugin": "@nx/angular/plugin",
-      "options": {
-        "targetNamePrefix": ""
-      }
-    },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
-    {
-      "plugin": "@nx/jest/plugin",
-      "options": {
-        "targetName": "test"
-      }
-    },
-    {
-      "plugin": "@nx/playwright/plugin",
-      "options": {
-        "targetName": "e2e"
-      }
-    },
-    {
       "plugin": "@nx/rspack/plugin",
       "options": {
         "buildTargetName": "build",
@@ -145,6 +73,7 @@
       "unitTestRunner": "jest"
     },
     "@nx/angular:component": {
+      "style": "scss",
       "type": "component"
     },
     "@schematics/angular:component": {
