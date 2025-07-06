@@ -8,5 +8,5 @@ import { NavigationComponent } from "./navigation/navigation.component";
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  title = 'DanAngularWebApp';
+  title = 'DB pensions for dummies';
 }

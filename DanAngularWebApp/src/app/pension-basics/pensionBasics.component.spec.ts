@@ -1,21 +1,18 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { PensionBasicsComponent } from './pensionBasics.component';
+import { RouterModule } from '@angular/router';
 
 describe('PensionBasicsComponent', () => {
-  let component: PensionBasicsComponent;
-  let fixture: ComponentFixture<PensionBasicsComponent>;
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PensionBasicsComponent],
+      imports: [PensionBasicsComponent, RouterModule.forRoot([])],
     }).compileComponents();
-
-    fixture = TestBed.createComponent(PensionBasicsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
+    const fixture = TestBed.createComponent(PensionBasicsComponent);
+    fixture.detectChanges();
+    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 });
