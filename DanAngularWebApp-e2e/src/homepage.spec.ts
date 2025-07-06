@@ -5,7 +5,7 @@ test.describe('Homepage - Pension Basics Page', () => {
     // Navigate to the homepage which should load pension-basics route
     await page.goto('/');
     // Wait for Angular to fully load
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
     // Give Angular extra time for rendering
     await page.waitForTimeout(1000);
   });
@@ -42,9 +42,6 @@ test.describe('Homepage - Pension Basics Page', () => {
   });
 
   test('should display the sidenav with pension basics navigation', async ({ page }) => {
-    // Wait for Angular to load and render
-    await page.waitForLoadState('networkidle');
-    
     // Check if the sidenav container is visible
     await expect(page.locator('mat-sidenav-container')).toBeVisible();
     
@@ -102,62 +99,43 @@ test.describe('Homepage - Pension Basics Page', () => {
   });
 
   test('should have working navigation in sidenav', async ({ page }) => {
-    // Wait for page to load completely
-    await page.waitForLoadState('networkidle');
-    
     // Use getByRole for the link with accessible name
     await page.getByRole('link', { name: 'What is a DB Pension?' }).click();
     
     // Wait for navigation to complete
-    await page.waitForLoadState('networkidle');
-    
-    // Check if URL changed - be more flexible with the pattern
-    await expect(page).toHaveURL(/.*what-is-a.*pension/);
+    await page.waitForURL(/.*what-is-a.*pension/);
     
     // Verify the sidenav is still visible after navigation
     await expect(page.locator('mat-sidenav-container')).toBeVisible();
   });
 
   test('should have working tab navigation', async ({ page }) => {
-    // Wait for initial load
-    await page.waitForLoadState('networkidle');
-    
     // Click on "Advanced Topics" tab using role="tab"
     await page.click('[role="tab"]:has-text("Advanced Topics")');
     
-    // Wait for navigation
-    await page.waitForLoadState('networkidle');
-    
-    // Check if URL changed to advanced topics route
-    await expect(page).toHaveURL(/.*advanced-topics/);
+    // Wait for navigation to complete
+    await page.waitForURL(/.*advanced-topics/);
     
     // Verify the toolbar is still visible (fixed position)
     await expect(page.locator('mat-toolbar')).toBeVisible();
   });
 
   test('should have working CTA button navigation', async ({ page }) => {
-    // Wait for page load
-    await page.waitForLoadState('networkidle');
-    
     // Click on "Start Learning" button - use button selector
     await page.click('button:has-text("Start Learning")');
     
-    // Wait for navigation
-    await page.waitForLoadState('networkidle');
-    
-    // Check if it navigates to the correct route - be more flexible
-    await expect(page).toHaveURL(/.*pension.*what.*pension/);
+    // Wait for navigation to complete
+    await page.waitForURL(/.*pension.*what.*pension/);
     
     // Go back to test the second CTA
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
     
     // Click on "Try Calculator" button
     await page.click('button:has-text("Try Calculator")');
-    await page.waitForLoadState('networkidle');
     
-    // Check if it navigates to calculators
-    await expect(page).toHaveURL(/.*calculators/);
+    // Wait for navigation to complete
+    await page.waitForURL(/.*calculators/);
   });
 
   test('should have responsive design elements', async ({ page }) => {
