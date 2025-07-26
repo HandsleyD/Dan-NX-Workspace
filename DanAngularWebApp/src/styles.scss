@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
+@use 'styles/variables';
+@use 'styles/components';
 @import '@angular/material/prebuilt-themes/rose-red.css';
+
+// Import our design system using modern @use syntax
 
 * {
   margin: 0;
@@ -15,7 +19,8 @@ body {
   overflow-y: hidden; // Prevent body scrolling - let components handle their own scrolling
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
