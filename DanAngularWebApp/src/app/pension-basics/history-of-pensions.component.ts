@@ -75,7 +75,7 @@ export class HistoryOfPensionsComponent {
     plugins: {
       title: {
         display: true,
-        text: 'UK DB Pension Scheme Memberships (1936–2025)',
+        text: 'UK DB Pension Scheme Active Membership (1936–2025)',
         font: {
           size: 16,
           weight: 'bold',
@@ -131,7 +131,7 @@ export class HistoryOfPensionsComponent {
       y: {
         title: {
           display: true,
-          text: 'Total Members (millions)',
+          text: 'Total Active Members (millions)',
           color: '#666',
           font: {
             size: 14,
