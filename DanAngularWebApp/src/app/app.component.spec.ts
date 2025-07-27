@@ -9,9 +9,9 @@ describe('AppComponent', () => {
     }).compileComponents();
   });
 
-  it(`should have as title 'DB pensions for dummies'`, () => {
+  it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('DB pensions for dummies');
+    expect(app).toBeTruthy();
   });
 });

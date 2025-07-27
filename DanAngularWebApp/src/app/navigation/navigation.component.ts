@@ -22,7 +22,7 @@ type TabKey = 'pension-basics' | 'advanced-topics' | 'calculators';
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss'],
+  styleUrl: './navigation.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     MatToolbarModule,
@@ -43,7 +43,11 @@ export class NavigationComponent {
   protected readonly currentUrl = signal(this.router.url);
 
   // Tab routes for the main navigation
-  private readonly tabRoutes = ['/pension-basics', '/advanced-topics', '/calculators'] as const;
+  private readonly tabRoutes = [
+    '/pension-basics',
+    '/advanced-topics',
+    '/calculators',
+  ] as const;
 
   // Computed property to determine the current tab key from route
   protected readonly currentTabKey = computed((): TabKey => {
@@ -61,10 +65,14 @@ export class NavigationComponent {
   protected readonly selectedTabIndex = computed(() => {
     const tabKey = this.currentTabKey();
     switch (tabKey) {
-      case 'pension-basics': return 0;
-      case 'advanced-topics': return 1;
-      case 'calculators': return 2;
-      default: return 0;
+      case 'pension-basics':
+        return 0;
+      case 'advanced-topics':
+        return 1;
+      case 'calculators':
+        return 2;
+      default:
+        return 0;
     }
   });
 
@@ -80,7 +88,11 @@ export class NavigationComponent {
 
     // Listen to route changes to update current URL
     this.router.events
-      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .pipe(
+        filter(
+          (event): event is NavigationEnd => event instanceof NavigationEnd
+        )
+      )
       .subscribe((event) => {
         this.currentUrl.set(event.url);
       });

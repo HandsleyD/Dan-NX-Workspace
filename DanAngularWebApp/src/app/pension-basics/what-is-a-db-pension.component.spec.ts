@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 import { WhatIsADbPensionComponent } from './what-is-a-db-pension.component';
 
 describe('WhatIsADbPensionComponent', () => {
@@ -8,6 +9,16 @@ describe('WhatIsADbPensionComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [WhatIsADbPensionComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: { params: {} },
+            params: { subscribe: jest.fn() },
+            queryParams: { subscribe: jest.fn() },
+          },
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(WhatIsADbPensionComponent);

@@ -1,1 +1,272 @@
-<p>history-of-pensions works!</p>
+<!-- Hero Section -->
+<div class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">
+      <span class="gradient-text">History of Pensions</span>
+      <span class="subtitle">From Railway Workers to Modern Times</span>
+    </h1>
+    <p class="hero-description">
+      Discover how DB pensions in the UK evolved from early 20th-century railway
+      schemes to become a cornerstone of British employment, and why they've
+      become increasingly rare today.
+    </p>
+    <div class="cta-buttons">
+      <button
+        mat-raised-button
+        color="primary"
+        class="primary-cta"
+        (click)="scrollToChart()"
+      >
+        <mat-icon>timeline</mat-icon>
+        Explore Timeline
+      </button>
+      <button
+        mat-stroked-button
+        class="secondary-cta"
+        routerLink="/pension-basics"
+      >
+        <mat-icon>arrow_back</mat-icon>
+        Back to Basics
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Historical Context Section -->
+<div class="features-section">
+  <div class="section-header">
+    <h2>The Origins Story</h2>
+    <p>How DB pensions began in Britain</p>
+  </div>
+
+  <div class="origin-story">
+    <div class="story-card">
+      <div class="timeline-marker">1900s</div>
+      <div class="story-content">
+        <h3>Railway Pioneers</h3>
+        <p>
+          DB pensions in the UK first started in the early twentieth century.
+          <strong>Railway companies were among the first</strong> to set up
+          formal pension schemes for their employees. These early schemes
+          recognized the physical demands of railway work and the need for
+          dignified retirement.
+        </p>
+      </div>
+    </div>
+
+    <div class="story-card">
+      <div class="timeline-marker">1936</div>
+      <div class="story-content">
+        <h3>Early Foundations</h3>
+        <p>
+          By 1936, approximately <strong>2.6 million workers</strong> were
+          covered by DB schemes, primarily in the public sector and among large
+          employers who could afford the administrative complexity.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Interactive Data Visualization Section -->
+<div class="features-section" style="background: white">
+  <div class="section-header">
+    <h2>The Rise and Decline of DB Pensions</h2>
+  </div>
+
+  <!-- Interactive Chart -->
+  <div class="chart-container" id="interactive-chart">
+    <div class="chart-wrapper">
+      <canvas
+        baseChart
+        [type]="chartType"
+        [data]="chartData()"
+        [options]="chartOptions"
+        class="pension-history-chart"
+      >
+      </canvas>
+    </div>
+
+    <!-- Chart Legend -->
+    <div class="chart-legend">
+      <h4>Historical Eras</h4>
+      <div class="legend-items">
+        <div class="legend-item">
+          <span class="legend-dot growth"></span>
+          <span class="legend-label">Growth Era (1936-1967)</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot transition"></span>
+          <span class="legend-label">Transition Era (1971-2000)</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot decline"></span>
+          <span class="legend-label">Decline Era (2005-2025)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Sources -->
+    <div class="chart-sources">
+      <h5>Data Sources</h5>
+      <div class="sources-list">
+        <p>
+          <strong>Primary:</strong> Office for National Statistics (Occupational
+          Pension Schemes Survey, Pension Trends Ch.6, Funded Occupational
+          Pension Schemes Bulletin 2024); The Pensions Regulator (DB Landscape
+          Reports 2012–2024, Annual DB Scheme Reports); Lee, E. M. An
+          Introduction to Pension Funds. Oxford University Press, 1979
+        </p>
+        <p>
+          <strong>Additional:</strong> Department for Work and Pensions (Pension
+          Scheme Statistics); Pensions Policy Institute (The Shift from DB to
+          DC, 2003); PwC UK (DB Pensions Survey, 2023); XPS Group (DB:UK
+          Tracker)
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Historical Periods Section -->
+<div class="features-section">
+  <div class="section-header">
+    <h2>Three Distinct Eras</h2>
+    <p>Understanding the major phases of DB pension history</p>
+  </div>
+
+  <div class="eras-timeline">
+    <div class="era-section growth-era">
+      <div class="era-header">
+        <h3>Growth Era (1936-1967)</h3>
+        <span class="era-trend growth">📈 Peak Growth</span>
+      </div>
+      <div class="era-stats">
+        <div class="stat">
+          <strong>2.6M → 12.2M</strong>
+          <span>Members</span>
+        </div>
+        <div class="stat">
+          <strong>369%</strong>
+          <span>Growth</span>
+        </div>
+      </div>
+      <div class="era-description">
+        <p>
+          Post-war optimism and economic recovery drove massive expansion in
+          occupational benefits. Manufacturing-led growth made DB pensions a
+          standard employment benefit.
+        </p>
+        <ul>
+          <li><strong>1945:</strong> Post-war optimism drives expansion</li>
+          <li><strong>1960:</strong> Peak industrial DB coverage</li>
+          <li>
+            <strong>1967:</strong> High point of DB popularity (12.2M members)
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="era-section transition-era">
+      <div class="era-header">
+        <h3>Transition Era (1971-2000)</h3>
+        <span class="era-trend transition">📊 Mixed Trends</span>
+      </div>
+      <div class="era-stats">
+        <div class="stat">
+          <strong>11.1M → 10.1M</strong>
+          <span>Members</span>
+        </div>
+        <div class="stat">
+          <strong>-9%</strong>
+          <span>Decline</span>
+        </div>
+      </div>
+      <div class="era-description">
+        <p>
+          Economic uncertainty, inflation, and rising costs began to challenge
+          the DB model. New regulations improved security but increased
+          expenses.
+        </p>
+        <ul>
+          <li><strong>1975:</strong> SERPS introduction bolsters coverage</li>
+          <li><strong>1990s:</strong> DC alternatives gain popularity</li>
+          <li>
+            <strong>1995:</strong> Pensions Act raises costs but improves
+            security
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="era-section decline-era">
+      <div class="era-header">
+        <h3>Decline Era (2005-2025)</h3>
+        <span class="era-trend decline">📉 Rapid Decline</span>
+      </div>
+      <div class="era-stats">
+        <div class="stat">
+          <strong>4.0M → 0.64M</strong>
+          <span>Members</span>
+        </div>
+        <div class="stat">
+          <strong>-84%</strong>
+          <span>Decline</span>
+        </div>
+      </div>
+      <div class="era-description">
+        <p>
+          Accounting changes, market downturns, and auto-enrolment into DC
+          schemes accelerated the closure of DB schemes to new members.
+        </p>
+        <ul>
+          <li>
+            <strong>2005:</strong> FRS17 accounting changes accelerate closures
+          </li>
+          <li>
+            <strong>2012:</strong> Auto-enrolment makes DC the new standard
+          </li>
+          <li>
+            <strong>2025:</strong> Legacy-only participation (0.64M members)
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Call to Action -->
+<div
+  class="features-section"
+  style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+>
+  <div class="section-header" style="color: white">
+    <h2>What's Next for DB Pensions?</h2>
+    <p style="color: rgba(255, 255, 255, 0.9)">
+      Learn about current pension options and planning
+    </p>
+  </div>
+
+  <div class="cta-buttons">
+    <button
+      mat-raised-button
+      class="primary-cta"
+      routerLink="/pension-basics/what-is-a-DB-pension"
+    >
+      <mat-icon>school</mat-icon>
+      Learn About DB Pensions
+    </button>
+    <button mat-stroked-button class="secondary-cta" routerLink="/calculators">
+      <mat-icon>calculate</mat-icon>
+      Pension Calculator
+    </button>
+    <button
+      mat-stroked-button
+      class="secondary-cta"
+      routerLink="/advanced-topics"
+    >
+      <mat-icon>trending_up</mat-icon>
+      Advanced Topics
+    </button>
+  </div>
+</div>

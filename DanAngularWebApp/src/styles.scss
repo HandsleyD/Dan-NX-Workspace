@@ -12,11 +12,14 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #fff0f1; // Matches rose-red Material theme background
   font-family: Roboto, Arial, sans-serif;
   overflow-x: hidden; // Prevent horizontal scrollbar
-  overflow-y: hidden; // Prevent body scrolling - let components handle their own scrolling
 }
 
 html,
@@ -24,8 +27,24 @@ body {
   height: 100%;
 }
 
-// App root should use full height
+// App root should use natural content height, not forced 100%
 app-root {
   display: block;
-  height: 100%;
+  min-height: 100vh; // Use min-height instead of height to allow natural content flow
+}
+
+// Ensure no extra spacing at bottom of pages
+router-outlet + * {
+  margin-bottom: 0 !important;
+}
+
+// Remove any default margin/padding from last child elements
+.features-section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 2rem; // Reduced from default section padding (4rem) to 2rem
+}
+
+// Ensure content doesn't exceed viewport needlessly
+body > app-root {
+  overflow-x: hidden;
 }
