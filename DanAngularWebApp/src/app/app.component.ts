@@ -50,8 +50,6 @@ export class AppComponent implements OnInit {
 
               // Also scroll after a short delay to ensure DOM is ready
               setTimeout(() => this.scrollToTop(), 50);
-              setTimeout(() => this.scrollToTop(), 150);
-              setTimeout(() => this.scrollToTop(), 300);
             }
           }
         });
