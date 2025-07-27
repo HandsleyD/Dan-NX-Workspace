@@ -1,1 +1,58 @@
-<p>advanced-topics works!</p>
+<div class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">
+      <span class="gradient-text">Advanced Topics</span>
+      <span class="subtitle">Deep Dive</span>
+    </h1>
+    <p class="hero-description">
+      Explore sophisticated pension strategies, investment principles, and
+      regulatory frameworks that shape modern defined benefit pension schemes.
+    </p>
+    <div class="cta-buttons">
+      <button mat-raised-button color="primary" class="primary-cta">
+        <mat-icon>trending_up</mat-icon>
+        Explore Strategies
+      </button>
+      <button
+        mat-stroked-button
+        class="secondary-cta"
+        routerLink="/pension-basics"
+      >
+        <mat-icon>school</mat-icon>
+        Back to Basics
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="features-section">
+  <div class="section-header">
+    <h2>Advanced Learning Modules</h2>
+    <p>Master complex pension concepts</p>
+  </div>
+
+  <div class="features-grid">
+    @for (topic of topics(); track topic.id) {
+    <div
+      class="feature-card advanced-topic"
+      [class.selected]="selectedTopic() === topic.id"
+      (click)="selectTopic(topic.id)"
+      tabindex="0"
+      (keyup)="onTopicKeyup($event, topic.id)"
+      role="button"
+      [attr.aria-pressed]="selectedTopic() === topic.id"
+    >
+      <div class="card-icon">
+        <mat-icon>{{ topic.icon }}</mat-icon>
+      </div>
+      <h3>{{ topic.title }}</h3>
+      <p>{{ topic.description }}</p>
+      @if (selectedTopic() === topic.id) {
+      <div class="topic-details">
+        <span class="status-badge">Selected</span>
+      </div>
+      }
+    </div>
+    }
+  </div>
+</div>
